@@ -1,17 +1,16 @@
 <html>
-
-	<head>
+<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="{{ url_for('static', filename='css/home_stylesheet.css') }}">
- <title> Appetite </title> <!--- Titel, der im Tab steht --->
-	</head>
+<title> Appetite </title> <!--- Titel, der im Tab steht --->
+</head>
 
 
 
 
 
-	<body>
+<body>
 		<ul>
 		  <li><a href="default.asp">Home</a></li> <!--- verstehe das in den gänsefüßchen nicht --->
 		  <li><a href="news.asp">News</a></li>
@@ -23,7 +22,7 @@
 
 
 
-	<h1> Appetite. </h1>
+  <h1> Appetite. </h1>
 	<h2> Hungry? We got you.</h2>
 	<p1>
 		Just let us know what you have in your fridge.
@@ -126,7 +125,7 @@
 			  <textarea cols="20" name="comments" rows="5">Comment</textarea><br />
 				<label><input name="terms" type="checkbox" value="tandc" />Accept terms</label> <br /> -->
 				<input type="submit" value="Suche starten" />
-			</form> 
+			</form>
 
 {% for meal in meals %}
 	<li> {{meal}} </li> </br>
@@ -136,6 +135,6 @@
 {% endfor %}
 <!---
 Filter wie bei Kleiderkreisel
-nur dass die Stichworte bleiben und aufgeliset werden
+nur dass die Stichworte bleiben und aufgelistet werden
 und man sie aber auch wieder wegklicken kann
 --->
