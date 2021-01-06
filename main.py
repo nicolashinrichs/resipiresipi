@@ -35,7 +35,7 @@ def index():
 
     return render_template('login.html')
 
-#Registrierung Funktion
+#Registrierung-Funktion
 @app.route('/new', methods=['GET', 'POST'])
 def new_user():
     if request.method == "POST":
