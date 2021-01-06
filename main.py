@@ -14,7 +14,7 @@ app.config["MYSQL_DB"] = "appetite"
 #Datenbank wird mit der App verknüpft
 db = MySQL(app)
 
-#Login Funktion
+#Login-Funktion
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
