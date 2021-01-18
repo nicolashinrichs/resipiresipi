@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, url_for
-from flask_mysqldb import MySQL
-import MySQLdb
+#from flask_mysqldb import MySQL
+#import MySQLdb
 
 app = Flask(__name__)
 app.secret_key = "1234"
@@ -11,8 +11,8 @@ app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "appetite"
 
-#Datenbank wird mit der App verknüpft
-db = MySQL(app)
+#Datenbank wird mit der App verknuepft
+#db = MySQL(app)
 
 #Login-Funktion
 @app.route('/', methods=['GET', 'POST'])
