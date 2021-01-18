@@ -12,7 +12,7 @@ app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "appetite"
 
 #Datenbank wird mit der App verknuepft
-#db = MySQL(app)
+db = MySQL(app)
 
 #Login-Funktion
 @app.route('/', methods=['GET', 'POST'])
