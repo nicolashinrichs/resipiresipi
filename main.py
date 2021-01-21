@@ -33,7 +33,7 @@ def index():
                 else:
                     return redirect(url_for('index'))
 
-    return render_template('login.html')
+    return render_template('testw3.html')
 
 #Registrierung-Funktion
 @app.route('/new', methods=['GET', 'POST'])
