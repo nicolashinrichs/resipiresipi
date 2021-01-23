@@ -16,7 +16,7 @@ app.config["MYSQL_USER"] = "root"
 app.config["MYSQL_PASSWORD"] = ""
 app.config["MYSQL_DB"] = "appetite"
 
-#Datenbank wird mit der App verknuepft
+#Datenbank wird mit der App verknüpft
 db = MySQL(app)
 
 
