@@ -1,6 +1,11 @@
 #https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+sugar,+flour,+rice,+vanilla,+baking soda,+pears,+milk&number=10&apiKey=aceba4f6dcb2452098b2d81db2fdc588
 #https:https://api.spoonacular.com/recipes/{id}/ingredientWidget.json?apiKey=aceba4f6dcb2452098b2d81db2fdc588
 #Beispiel: https://api.spoonacular.com/recipes/490088/ingredientWidget.json?apiKey=aceba4f6dcb2452098b2d81db2fdc588
+#Wir brauchen "name" und "amount" (name of ingredients & the according amount)
+#https://api.spoonacular.com/recipes/{id}/analyzedInstructions?apiKey=aceba4f6dcb2452098b2d81db2fdc588 
+#Beispiel: https://api.spoonacular.com/recipes/600288/analyzedInstructions?apiKey=aceba4f6dcb2452098b2d81db2fdc588
+#Wir brauchen "step" (die Steps der Kochanleitung)
+
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
 import MySQLdb
