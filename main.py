@@ -1,5 +1,6 @@
 #https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+sugar,+flour,+rice,+vanilla,+baking soda,+pears,+milk&number=10&apiKey=aceba4f6dcb2452098b2d81db2fdc588
-
+#https:https://api.spoonacular.com/recipes/{id}/ingredientWidget.json?apiKey=aceba4f6dcb2452098b2d81db2fdc588
+#Beispiel: https://api.spoonacular.com/recipes/490088/ingredientWidget.json?apiKey=aceba4f6dcb2452098b2d81db2fdc588
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
 import MySQLdb
@@ -23,7 +24,7 @@ db = MySQL(app)
 #Index
 @app.route('/', methods=['GET', 'POST'])
 def getIngredients():
-    if request.method == 'GET':
+    if request.method == 'GET': #Auch wenn der Button nicht gedrückt wird kommt eine Response. Beheben
         res = requests.get('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+sugar,+flour,+rice,+vanilla,+baking soda,+pears,+milk&number=2&apiKey=aceba4f6dcb2452098b2d81db2fdc588')
         jsonDoc = res.json()
         jsonpath_expression = parse('employees[*].id')
