@@ -32,7 +32,7 @@ def getIngredients():
     if request.method == 'GET': #Auch wenn der Button nicht gedrückt wird kommt eine Response. Beheben
         res = requests.get('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+sugar,+flour,+rice,+vanilla,+baking soda,+pears,+milk&number=2&apiKey=aceba4f6dcb2452098b2d81db2fdc588')
         jsonDoc = res.json()
-        jsonpath_expression = parse('employees[*].id')
+        jsonpath_expression = parse('$..title')
         print("Test")
     return render_template('testw3.html', testResponse = res.json())
 
