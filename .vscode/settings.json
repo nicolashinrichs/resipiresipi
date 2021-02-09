@@ -1,3 +1,4 @@
 {
-    "python.pythonPath": "/Users/miaziaschuler/miniconda3/bin/python"
+    "python.pythonPath": "C:\\Program Files\\Python39\\python.exe",
+    "python.formatting.provider": "black"
 }

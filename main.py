@@ -27,14 +27,27 @@ db = MySQL(app)
 
 
 #Index
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
+def index():
+    return render_template('index.html')
+
+
+#Index with receipts
+@app.route('/', methods=['POST'])
 def getIngredients():
-    if request.method == 'GET': #Auch wenn der Button nicht gedrückt wird kommt eine Response. Beheben
-        res = requests.get('https://api.spoonacular.com/recipes/findByIngredients?ingredients=apples,+sugar,+flour,+rice,+vanilla,+baking soda,+pears,+milk&number=2&apiKey=aceba4f6dcb2452098b2d81db2fdc588')
-        jsonDoc = res.json()
+    if request.method == 'POST' and 'ingredientInput' in request.form: #Auch wenn der Button nicht gedrückt wird kommt eine Response. Beheben
+        ingredient = request.form['ingredientInput']
+        numberOfResults = 5
+        url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey=aceba4f6dcb2452098b2d81db2fdc588".format(ingredient, numberOfResults)
+        res = requests.get(url)
+        print(url)
+        json_data = json.loads(res.text)
         jsonpath_expression = parse('$..title')
-        print("Test")
-    return render_template('testw3.html', testResponse = res.json())
+        #match = jsonpath_expression.find(json_data)
+        #print(match)
+        receipts_list = [match.value for match in jsonpath_expression.find(json_data)]
+        print(receipts_list)
+    return render_template('testw3.html', testResponse = receipts_list)
 
 # #Login-Funktion
 # @app.route('/', methods=['GET', 'POST'])
