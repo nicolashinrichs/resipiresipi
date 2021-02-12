@@ -102,6 +102,12 @@ def getIngredients():
     if request.method == 'GET':
         return render_template('testw3.html')
 
+#Show receipts
+@app.route('/', methods=['GET','POST'])
+def getReceipts():
+    if request.method == 'POST' and 'ingredientInput' in request.form:
+
+
 # #Login-Funktion
 # @app.route('/', methods=['GET', 'POST'])
 # def index():
