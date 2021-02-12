@@ -26,28 +26,81 @@ app.config["MYSQL_DB"] = "appetite"
 db = MySQL(app)
 
 
+#ApiKey from json file
+# read file
+with open('secret.json', 'r') as myfile:
+    data=myfile.read()
+
+# parse file
+obj = json.loads(data)
+
+# show values
+apiKey = str(obj['apiKey'])
+
+
 #Index
-@app.route('/', methods=['GET'])
-def index():
-    return render_template('index.html')
+#@app.route('/', methods=['GET'])
+#def index():
+#    print("testindex")
+#    return render_template('testw3.html')
+
+#declare empty list
+ingredients = []
+ingredientsForTextArea = []
+
+def listToStringWithNewLine(s):  
+    
+    # initialize an empty string 
+    str1 = ""  
+    # traverse in the string   
+    for ele in s:  
+        str1 += ele + "\n"
+    # return string   
+    return str1
+
+
+
+def listToString(s):  
+    
+    # initialize an empty string 
+    str1 = ""  
+    # traverse in the string   
+    for ele in s:  
+        str1 += ele 
+    # return string   
+    return str1
 
 
 #Index with receipts
-@app.route('/', methods=['POST'])
+@app.route('/', methods=['GET','POST'])
 def getIngredients():
-    if request.method == 'POST' and 'ingredientInput' in request.form: #Auch wenn der Button nicht gedrückt wird kommt eine Response. Beheben
-        ingredient = request.form['ingredientInput']
-        numberOfResults = 5
-        url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey=aceba4f6dcb2452098b2d81db2fdc588".format(ingredient, numberOfResults)
-        res = requests.get(url)
-        print(url)
-        json_data = json.loads(res.text)
-        jsonpath_expression = parse('$..title')
-        #match = jsonpath_expression.find(json_data)
-        #print(match)
-        receipts_list = [match.value for match in jsonpath_expression.find(json_data)]
-        print(receipts_list)
-    return render_template('testw3.html', testResponse = receipts_list)
+    print("test1")
+    if request.method == 'POST' and 'ingredientInput' in request.form:
+        print("test2")
+        if request.form['ingredientsTextArea'] and request.form.get("submit_button_submit")and len(ingredients) > 0:
+            print("test3: submit_button_submit")
+            print(ingredients)
+            numberOfResults = 5
+            url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey={2}".format(ingredients, numberOfResults, apiKey)
+            res = requests.get(url)
+            json_data = json.loads(res.text)
+            jsonpath_expression = parse('$..title')
+            receipts_list = [match.value for match in jsonpath_expression.find(json_data)]
+            print(receipts_list)
+            print("test3: receipts_list")
+            ingredients.clear()
+            return render_template('testw3.html', testResponse = listToStringWithNewLine(receipts_list))
+        elif request.form['ingredientInput'] and request.form.get("submit_button_add"):
+            print("test4: submit_button_more")
+            ingredients.append("+" + request.form['ingredientInput'] + ",")
+            ingredientsForTextArea.append(request.form['ingredientInput'])
+            print(ingredients)
+
+            return render_template('testw3.html', ingredientsList = listToStringWithNewLine(ingredientsForTextArea))
+        else:
+            return render_template('testw3.html')
+    if request.method == 'GET':
+        return render_template('testw3.html')
 
 # #Login-Funktion
 # @app.route('/', methods=['GET', 'POST'])
