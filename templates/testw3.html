@@ -1,9 +1,12 @@
 <!DOCTYPE html>
 <html>
+  <head>
 <title>W3.CSS Template</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" type="text/css" href="./css/galleryCss.css" />
+</head>
 <body>
 
 <!-- Navbar (sit on top) -->
@@ -44,6 +47,25 @@
 <textarea readonly id="w3review2" name="w3review2" rows="4" cols="50">{{testResponse}}</textarea>
 </form>
 
+
+<div class="row">
+  <div class="column">
+    <div class="content">
+      {% if title_list %}
+      {% for image in images_list%}
+      <img src={{ image }} alt="Mountains" style="width:100%">
+      {% endfor %}
+      {% for title in title_list%}
+      <h3>{{ title }}</h3>
+      {% endfor %}
+      <p>Lorem ipsum..</p>
+      {% endif %}
+    </div>
+  </div>
+</div>
+
+
+
 <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script> 
 <script type="text/javascript">
             $(document).ready(function () {
@@ -61,6 +83,15 @@
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16">Receipts</h3>
     <p>Hier werden die Rezepte anzeigt
     </p>
+    {% if title_list %}
+    <ul>
+    {% for title in title_list%}
+        <li>{{ title }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+
+
   </div>
 
 <!-- End page content -->
