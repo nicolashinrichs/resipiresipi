@@ -36,7 +36,7 @@ obj = json.loads(data)
 apiKey = str(obj["apiKey"])
 
 
-def readReceiptsJson(filename):
+def readJsonFromJsonDoc(filename):
     with open("./testJsonFiles/" + filename + ".json", "r") as myfile:
         data = myfile.read()
     return data
@@ -89,27 +89,31 @@ def getIngredients():
             print("test3: submit_button_submit")
             print(ingredients)
             numberOfResults = 5
+            # Mock up Data
             # url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey={2}".format(
             #    ingredients, numberOfResults, apiKey
             # )
             # res = requests.get(url)
             # json_data = json.loads(res.text)
-            json_data = json.loads(readReceiptsJson("testResponse"))
-            jsonpath_expression_title = parse("$[*].title")
-            jsonpath_expression_image = parse("$[*].image")
-            title_list = [
-                match.value for match in jsonpath_expression_title.find(json_data)
-            ]
-            images_list = [
-                match.value for match in jsonpath_expression_image.find(json_data)
-            ]
-            print(title_list)
+            json_data = json.loads(readJsonFromJsonDoc("testResponse"))
+            # jsonpath_expression_receipts = parse("$[*]")
+            receipts_list = json_data
+            images_list = json_data
+            # receipts_list = [
+            #    match.value for match in jsonpath_expression_receipts.find(json_data)
+            # ]
+            # images_list = [
+            #    match.value for match in jsonpath_expression_image.find(json_data)
+            # ]
+            print(json_data)
+            print(receipts_list)
             print("test3: receipts_list")
             ingredients.clear()
             return render_template(
                 "testw3.html",
-                title_list=title_list,
+                receipts_list=receipts_list,
                 images_list=images_list,
+                numberOfResults=numberOfResults,
             )
         elif request.form["ingredientInput"] and request.form.get("submit_button_add"):
             print("test4: submit_button_more")
