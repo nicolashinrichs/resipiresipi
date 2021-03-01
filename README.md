@@ -66,3 +66,12 @@ Lösungsansatz:
 - Home (ingredient filtering) -> Search Recipes by Ingredient
 - Regional and seasonal -> Excel 
 
+To Dos bis zum 12.03.2021:
+
+- Login Seite: muss designed und überarbeitet werden und mit der Index Seite angepasst werden (Modal box auf der Index Seite)
+- Index Seite:  - Suchleiste mit Tag-System (Nico) 
+                - Frontend Gallerie mit den Suchergebnissen: jedes Rezeptfeld hat eine Hover Funktion mit den dazugehörigen Infoicons und einem "Show Recipe" Button (Mimi & Nico)
+                - Backend Gallerie mit den Suchergebnissen: Suchergebnisse müssen in die richtige Reihenfolge gebracht werden mit den jeweiligen Info und muss dann mit der html Seite verknüpft werden
+                - Frontend Rezept Seite: in Form einer Modal Box mit Foto, Namen, Infoicon, Zutatenliste & Rezeptbeschreibung des jeweiligen Rezepts 
+                - Backend Rezept Seite: Funktionalität einbauen 
+(- Account Seite:        - Frage- bzw Voreinstellungsformular überlegen)
