@@ -99,12 +99,30 @@ def getIngredients():
             # jsonpath_expression_receipts = parse("$[*]")
             receipts_list = json_data
             images_list = json_data
+            # 2. API Call
+            print("test3: 2. API Call")
+            vegetarianList = []
+            veganList = []
+            for i in range(numberOfResults):
+                for id in receipts_list[i]["id"]:
+                    url = "https://api.spoonacular.com/recipes/{0}/information?apiKey={1}".format(
+                        id, apiKey
+                    )
+                res = requests.get(url)
+                json_data = json.loads(res.text)
+                print(json_data)
+                print(json_data["vegetarian"])
+                print(json_data["vegan"])
+                vegetarianList.append(json_data["vegetarian"])
+                veganList.append(json_data["vegan"])
+
             # receipts_list = [
             #    match.value for match in jsonpath_expression_receipts.find(json_data)
             # ]
             # images_list = [
             #    match.value for match in jsonpath_expression_image.find(json_data)
             # ]
+            saisonList = 0
             print(json_data)
             print(receipts_list)
             print("test3: receipts_list")
@@ -113,6 +131,8 @@ def getIngredients():
                 "testw3.html",
                 receipts_list=receipts_list,
                 images_list=images_list,
+                vegetarianList=vegetarianList,
+                veganList=veganList,
                 numberOfResults=numberOfResults,
             )
         elif request.form["ingredientInput"] and request.form.get("submit_button_add"):
