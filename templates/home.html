@@ -1,0 +1,355 @@
+<!-- Home PAge: Appetite -->
+
+<!DOCTYPE html>
+<html>
+<title>Appetite Homepage</title>
+<!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"--> 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+
+<body>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <style>
+
+            /* Centering the Headlines*/
+            .container {
+              position: relative;
+              text-align: center;
+              color: black;
+            }
+            .centered1 {
+              position: absolute;
+              top: 39%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-size: 50px;
+              font-weight: bold;
+            }
+            .centered2 {
+              position: absolute;
+              top: 42%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              font-weight: bold;
+            }
+            /* Centering the Background Image*/
+            body, html {
+            height: 100%;
+            margin: 0;
+            }
+            .bg-img {
+            background-image: url("tomatoes.jpg");
+            background-repeat: no-repeat;
+            background-position: center; 
+            background-size: cover;
+            position: relative;
+            background-attachment: fixed;
+            height: 100%;
+            }
+
+            /* The Search Bar*/
+            input[type=text] {
+            width: 130px;
+            -webkit-transition: width 0.4s ease-in-out;
+            transition: width 0.4s ease-in-out;
+            position: absolute;
+            top: 45%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            }
+
+            input[type=text]:focus {
+            width: 30%;
+            }
+
+           /*Cards*/
+           .card {
+            transition: 0.3s;
+            width: 33%;
+            padding: 5%;
+            }
+           
+            .container {
+            padding: 2px 2px;
+            background-color: white;
+            }
+
+            /* Icon Overlay */
+            .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            }
+
+            .image {
+            display: block;
+            width: 100%;
+            height: auto;
+            }
+
+            .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .3s ease;
+            background-color:white;
+            }
+
+            .container:hover .overlay {
+            opacity: 1;
+            }
+
+            .icon {
+            color: black;
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+            .fa-user:hover {
+            color: White;
+            }
+
+            /* The Modal Box */
+
+            .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            .modal-content {
+            background-color: white;
+            margin: 15% auto; /* 15% from the top and centered */
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button */
+            .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            }
+
+            </style>
+
+
+
+
+        <div class="bg-img">
+            <!--img src="appetitelogo.png" alt="Logo Appetite"-->
+
+            <!--Modal Login Form W3-->
+            <div class="w3-container">
+                <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>
+              
+                <div id="id01" class="w3-modal">
+                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
+              
+                    <div class="w3-center"><br>
+                      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
+                      <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
+                    </div>
+              
+                    <form class="w3-container" action="/action_page.php">
+                      <div class="w3-section">
+                        <label><b>Username</b></label>
+                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
+                        <label><b>Password</b></label>
+                        <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
+                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
+                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
+                      </div>
+                    </form>
+              
+                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
+                      <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
+                      <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
+                    </div>
+              
+                  </div>
+                </div>
+              </div>
+              <!-- Headline and Searchbar-->
+            <div class="centered1">APPETITE</div>
+            <div class="centered2">Let's get cooking. Add ingredients:</div>
+            <form>
+              <input type="text" name="search" placeholder="Search..">
+            </form>
+          </div>
+
+
+          <!-- RECIPE 1-->
+          <div class="card">
+            <div class="container">
+            <img src="food1.jpg" alt="Avatar" style="width:100%">
+            <div class="overlay">
+                <a href="#" class="icon" title="User Profile">
+
+                    <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Show Recipe</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p> <!-- Name of recipe-->
+                </div>
+                </div>
+
+                  <i class="fa fa-user"></i>
+                </a>
+                </div>
+              </div>
+            <div class="container">
+              <h4><b>Recipe 1</b></h4> <!-- alt = title??-->
+            </div>
+          </div>
+
+          <!-- RECIPE 2-->
+          <div class="card">
+            <div class="container">
+            <img src="food2.jpg" alt="Avatar" style="width:100%">
+            <div class="overlay">
+                <a href="#" class="icon" title="User Profile">
+
+                    <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Show Recipe</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p> <!-- Name of recipe-->
+                </div>
+                </div>
+
+                  <i class="fa fa-user"></i>
+                </a>
+                </div>
+              </div>
+            <div class="container">
+              <h4><b>Recipe 2</b></h4> <!-- alt = title??-->
+            </div>
+          </div>
+
+           <!-- RECIPE 3-->
+           <div class="card">
+            <div class="container">
+            <img src="food3.jpg" alt="Avatar" style="width:100%">
+            <div class="overlay">
+                <a href="#" class="icon" title="User Profile">
+
+                    <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Show Recipe</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p> <!-- Name of recipe-->
+                </div>
+                </div>
+
+                  <i class="fa fa-user"></i>
+                </a>
+                </div>
+              </div>
+            <div class="container">
+              <h4><b>Recipe 3</b></h4> <!-- alt = title??-->
+            </div>
+          </div>
+
+           <!-- RECIPE 4-->
+           <div class="card">
+            <div class="container">
+            <img src="food4.jpg" alt="Avatar" style="width:100%">
+            <div class="overlay">
+                <a href="#" class="icon" title="User Profile">
+
+                    <!-- Trigger/Open The Modal -->
+                <button id="myBtn">Show Recipe</button>
+
+                <!-- The Modal -->
+                <div id="myModal" class="modal">
+
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span class="close">&times;</span>
+                    <p>Some text in the Modal..</p> <!-- Name of recipe-->
+                </div>
+                </div>
+
+                  <i class="fa fa-user"></i>
+                </a>
+                </div>
+              </div>
+            <div class="container">
+              <h4><b>Recipe 4</b></h4> <!-- alt = title??-->
+            </div>
+          </div>
+
+          <!--JAVA SCRIPT?-->
+          <script>
+            // Get the modal
+            var modal = document.getElementById("myModal");
+            
+            // Get the button that opens the modal
+            var btn = document.getElementById("myBtn");
+            
+            // Get the <span> element that closes the modal
+            var span = document.getElementsByClassName("close")[0];
+            
+            // When the user clicks the button, open the modal 
+            btn.onclick = function() {
+              modal.style.display = "block";
+            }
+            
+            // When the user clicks on <span> (x), close the modal
+            span.onclick = function() {
+              modal.style.display = "none";
+            }
+            
+            // When the user clicks anywhere outside of the modal, close it
+            window.onclick = function(event) {
+              if (event.target == modal) {
+                modal.style.display = "none";
+              }
+            }
+            </script>
+
+    </head>
+</body>

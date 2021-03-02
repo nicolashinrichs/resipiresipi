@@ -1,0 +1,44 @@
+body, html {
+    height: 100%;
+    margin: 0;
+  }
+  .bg-img {
+  background-image: url("tomatoes.jpg");
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-size: cover;
+  position: relative;
+  background-attachment: fixed;
+  height: 100%;
+ 
+
+  .centered1 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+    .centered1 {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        }
+    .centered2 {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    }
+
+ /* img {
+    width: 80%;
+    position: absolute;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+*/
+
+
