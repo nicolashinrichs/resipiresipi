@@ -4,8 +4,7 @@
 <html>
 <title>Appetite Homepage</title>
 <!--link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"--> 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" >
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--for the icon in the cards-->
 
 <body>
     <head>
@@ -125,7 +124,7 @@
 
             .modal {
             display: none; /* Hidden by default */
-            position: fixed; /* Stay in place */
+            /*position: absolute; /* causes Modal Box to be tiny */
             z-index: 1; /* Sit on top */
             left: 0;
             top: 0;
@@ -137,8 +136,10 @@
             }
             .modal-content {
             background-color: white;
-            margin: 15% auto; /* 15% from the top and centered */
-            padding: 20px;
+            
+            /*margin: 15% auto; /* 15% from the top and centered */
+            padding: 20%;
+            font-size: 20px;
             border: 1px solid #888;
             width: 80%; /* Could be more or less, depending on screen size */
             }
@@ -158,52 +159,23 @@
             cursor: pointer;
             }
 
+            
             </style>
-
-
-
 
         <div class="bg-img">
             <!--img src="appetitelogo.png" alt="Logo Appetite"-->
-
-            <!--Modal Login Form W3-->
-            <div class="w3-container">
-                <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-green w3-large">Login</button>
-              
-                <div id="id01" class="w3-modal">
-                  <div class="w3-modal-content w3-card-4 w3-animate-zoom" style="max-width:600px">
-              
-                    <div class="w3-center"><br>
-                      <span onclick="document.getElementById('id01').style.display='none'" class="w3-button w3-xlarge w3-hover-red w3-display-topright" title="Close Modal">&times;</span>
-                      <img src="img_avatar4.png" alt="Avatar" style="width:30%" class="w3-circle w3-margin-top">
-                    </div>
-              
-                    <form class="w3-container" action="/action_page.php">
-                      <div class="w3-section">
-                        <label><b>Username</b></label>
-                        <input class="w3-input w3-border w3-margin-bottom" type="text" placeholder="Enter Username" name="usrname" required>
-                        <label><b>Password</b></label>
-                        <input class="w3-input w3-border" type="password" placeholder="Enter Password" name="psw" required>
-                        <button class="w3-button w3-block w3-green w3-section w3-padding" type="submit">Login</button>
-                        <input class="w3-check w3-margin-top" type="checkbox" checked="checked"> Remember me
-                      </div>
-                    </form>
-              
-                    <div class="w3-container w3-border-top w3-padding-16 w3-light-grey">
-                      <button onclick="document.getElementById('id01').style.display='none'" type="button" class="w3-button w3-red">Cancel</button>
-                      <span class="w3-right w3-padding w3-hide-small">Forgot <a href="#">password?</a></span>
-                    </div>
-              
-                  </div>
-                </div>
-              </div>
-              <!-- Headline and Searchbar-->
             <div class="centered1">APPETITE</div>
             <div class="centered2">Let's get cooking. Add ingredients:</div>
             <form>
               <input type="text" name="search" placeholder="Search..">
             </form>
           </div>
+
+
+          <!--TEST RECIPE 1-->
+          
+
+
 
 
           <!-- RECIPE 1-->
@@ -223,6 +195,7 @@
                 <div class="modal-content">
                     <span class="close">&times;</span>
                     <p>Some text in the Modal..</p> <!-- Name of recipe-->
+                    <img src="food1.jpg" alt="Avatar" style="width:100%">
                 </div>
                 </div>
 
