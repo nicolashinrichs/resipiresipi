@@ -14,6 +14,7 @@ from flask_mysqldb import MySQL
 import MySQLdb
 import requests
 import json
+import csv
 from jsonpath_ng import jsonpath, parse
 
 app = Flask(__name__)
@@ -37,7 +38,7 @@ apiKey = str(obj["apiKey"])
 
 
 def readJsonFromJsonDoc(filename):
-    with open("./testJsonFiles/" + filename + ".json", "r") as myfile:
+    with open("./testJsonFiles/" + filename, "r") as myfile:
         data = myfile.read()
     return data
 
@@ -95,7 +96,7 @@ def getIngredients():
             # )
             # res = requests.get(url)
             # json_data = json.loads(res.text)
-            json_data = json.loads(readJsonFromJsonDoc("testResponse"))
+            json_data = json.loads(readJsonFromJsonDoc("testResponse.json"))
             # jsonpath_expression_receipts = parse("$[*]")
             receipts_list = json_data
             images_list = json_data
@@ -104,27 +105,26 @@ def getIngredients():
             vegetarianList = []
             veganList = []
             for i in range(numberOfResults):
-                for id in receipts_list[i]["id"]:
-                    url = "https://api.spoonacular.com/recipes/{0}/information?apiKey={1}".format(
-                        id, apiKey
-                    )
+                id = receipts_list[i]["id"]
+                url = "https://api.spoonacular.com/recipes/{0}/information?apiKey={1}".format(
+                    id, apiKey
+                )
                 res = requests.get(url)
                 json_data = json.loads(res.text)
-                print(json_data)
-                print(json_data["vegetarian"])
-                print(json_data["vegan"])
                 vegetarianList.append(json_data["vegetarian"])
                 veganList.append(json_data["vegan"])
-
             # receipts_list = [
             #    match.value for match in jsonpath_expression_receipts.find(json_data)
             # ]
             # images_list = [
             #    match.value for match in jsonpath_expression_image.find(json_data)
             # ]
-            saisonList = 0
-            print(json_data)
-            print(receipts_list)
+            saisonList = []
+            csvData = json.loads(readJsonFromJsonDoc("saisonCalendar.json"))
+            print(csvData)
+            for row in csvData:
+                print(row["Ingredient"])
+            # saisonList.append()
             print("test3: receipts_list")
             ingredients.clear()
             return render_template(
