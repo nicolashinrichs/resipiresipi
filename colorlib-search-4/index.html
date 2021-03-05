@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+  <title>Appetite Homepage</title>
+
+
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="author" content="colorlib.com">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,800" rel="stylesheet" />
+    <link href="css/main.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> <!--for the icon in the cards-->
+ 
+    <style>
+
+      /*Cards*/
+      .card {
+            transition: 0.3s;
+            padding: 5%;
+            }
+           
+            .container {
+            padding: 2px 2px;
+            background-color: white;
+            size:100%
+            }
+
+            /* Icon Overlay */
+            .container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            }
+
+            .image {
+            display: block;
+            width: 100%;
+            height: auto;
+            }
+
+            .overlay {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 100%;
+            width: 100%;
+            opacity: 0;
+            transition: .3s ease;
+            background-color:white;
+            }
+
+            .container:hover .overlay {
+            opacity: 1;
+            }
+
+            .icon {
+            color: black;
+            font-size: 100px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            -ms-transform: translate(-50%, -50%);
+            text-align: center;
+            }
+
+            .fa-user:hover {
+            color: White;
+            }
+
+            /* The Modal Box */
+
+            .modal {
+            display: none; /* Hidden by default */
+            /*position: absolute; /* causes Modal Box to be tiny */
+            z-index: 1; /* Sit on top */
+            left: 0;
+            top: 0;
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+            }
+            .modal-content {
+            background-color: white;
+            
+            /*margin: 15% auto; /* 15% from the top and centered */
+            padding: 20%;
+            font-size: 20px;
+            border: 1px solid #888;
+            width: 80%; /* Could be more or less, depending on screen size */
+            }
+
+            /* The Close Button */
+            .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            }
+
+            .close:hover,
+            .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+            }
+
+    </style>
+
+  </head>
+  <body>
+    <div class="s004">
+      <form method="POST">
+        <fieldset>
+          <legend>APPETITE.</legend>
+          <div class="inner-form">
+            <div class="input-field">
+              <input class="form-control" id="choices-text-preset-values" type="text" placeholder="Let's get cooking! Add ingredients..." />
+              <button class="btn-search" type="submit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                  <path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <!--div class="suggestion-wrap">
+            <span>New Arrivals</span>
+            <span>Ladies</span>
+            <span>Mens</span>
+            <span>Accessories</span>
+            <span>Sale</span>
+          </div-->
+        </fieldset>
+      </form>
+    </div>
+    <script src="js/extention/choices.js"></script>
+    <script>
+      var textPresetVal = new Choices('#choices-text-preset-values',
+      {
+        removeItemButton: true,
+      });
+
+    </script>
+
+
+
+
+    <!-- RECIPE 1-->
+    <div class="card">
+      <div class="container">
+      <img src="food1.jpg" alt="Avatar" style="width:100%">
+      <div class="overlay">
+          <a href="#" class="icon" title="User Profile">
+
+              <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Show Recipe</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p> <!-- Name of recipe-->
+              <img src="food1.jpg" alt="Avatar" style="width:100%">
+          </div>
+          </div>
+
+            <i class="fa fa-user"></i>
+          </a>
+          </div>
+        </div>
+      <div class="container">
+        <h4><b>Recipe 1</b></h4> <!-- alt = title??-->
+      </div>
+    </div>
+
+    <!-- RECIPE 2-->
+    <div class="card">
+      <div class="container">
+      <img src="food2.jpg" alt="Avatar" style="width:100%">
+      <div class="overlay">
+          <a href="#" class="icon" title="User Profile">
+
+              <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Show Recipe</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p> <!-- Name of recipe-->
+          </div>
+          </div>
+
+            <i class="fa fa-user"></i>
+          </a>
+          </div>
+        </div>
+      <div class="container">
+        <h4><b>Recipe 2</b></h4> <!-- alt = title??-->
+      </div>
+    </div>
+
+     <!-- RECIPE 3-->
+     <div class="card">
+      <div class="container">
+      <img src="food3.jpg" alt="Avatar" style="width:100%">
+      <div class="overlay">
+          <a href="#" class="icon" title="User Profile">
+
+              <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Show Recipe</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p> <!-- Name of recipe-->
+          </div>
+          </div>
+
+            <i class="fa fa-user"></i>
+          </a>
+          </div>
+        </div>
+      <div class="container">
+        <h4><b>Recipe 3</b></h4> <!-- alt = title??-->
+      </div>
+    </div>
+
+     <!-- RECIPE 4-->
+     <div class="card">
+      <div class="container">
+      <img src="food4.jpg" alt="Avatar" style="width:100%">
+      <div class="overlay">
+          <a href="#" class="icon" title="User Profile">
+
+              <!-- Trigger/Open The Modal -->
+          <button id="myBtn">Show Recipe</button>
+
+          <!-- The Modal -->
+          <div id="myModal" class="modal">
+
+          <!-- Modal content -->
+          <div class="modal-content">
+              <span class="close">&times;</span>
+              <p>Some text in the Modal..</p> <!-- Name of recipe-->
+          </div>
+          </div>
+
+            <i class="fa fa-user"></i>
+          </a>
+          </div>
+        </div>
+      <div class="container">
+        <h4><b>Recipe 4</b></h4> <!-- alt = title??-->
+      </div>
+    </div>
+
+    
+
+    <!--JAVA SCRIPT?-->
+    <script>
+      // Get the modal
+      var modal = document.getElementById("myModal");
+      
+      // Get the button that opens the modal
+      var btn = document.getElementById("myBtn");
+      
+      // Get the <span> element that closes the modal
+      var span = document.getElementsByClassName("close")[0];
+      
+      // When the user clicks the button, open the modal 
+      btn.onclick = function() {
+        modal.style.display = "block";
+      }
+      
+      // When the user clicks on <span> (x), close the modal
+      span.onclick = function() {
+        modal.style.display = "none";
+      }
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+      </script>
+
+
+  </body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+</html>
