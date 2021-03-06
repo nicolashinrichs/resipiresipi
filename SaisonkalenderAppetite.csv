@@ -1,5 +1,5 @@
-﻿Ingredient;1;2;3;4;5;6;7;8;9;10;11;12
-Apple ;;;;;;;;x;x;x;;
+﻿ingredients saison by months;
+apple;;;x;;;;;x;x;x;;
 Artichoke;;;;;x;x;x;x;x;x;;
 Eggplant ;;;;;;x;x;x;x;x;;
 Basil;;;;;x;x;x;x;x;x;;
@@ -8,7 +8,7 @@ Cauliflower;;;;;;x;x;x;x;x;;
 Broccoli;;;;;;x;x;x;x;x;;
 Blackberries;;;;;;;x;x;x;x;;
 Butternut squash ;;;;;;;;;x;x;;
-Mushrooms ;x;x;x;x;x;x;x;x;x;x;x;x
+mushrooms;x;x;x;x;x;x;x;x;x;x;x;x
 Napa Cabbage ;x;x;;;x;x;x;x;x;x;x;x
 Napa ;x;x;;;x;x;x;x;x;x;x;x
 Dicke Bohnen;;;;;;x;x;x;;;;

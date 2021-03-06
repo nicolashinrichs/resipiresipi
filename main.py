@@ -11,6 +11,7 @@
 
 from flask import Flask, render_template, request, redirect, session, url_for
 from flask_mysqldb import MySQL
+from datetime import datetime
 import MySQLdb
 import requests
 import json
@@ -41,6 +42,15 @@ def readJsonFromJsonDoc(filename):
     with open("./testJsonFiles/" + filename, "r") as myfile:
         data = myfile.read()
     return data
+
+
+def csvToArrayList(filename):
+    with open(filename, "r") as csvfile:
+        csvFile = csv.reader(csvfile, delimiter=";", quotechar='"')
+        data = []
+        for row in csvFile:
+            data.append(row)
+        return data
 
 
 # Index
@@ -76,6 +86,25 @@ def listToString(s):
     return str1
 
 
+def createSaisonList(ingredientsList, saisonData):
+    data = []
+    for ingredientsRow in ingredientsList:
+        for saisonRow in saisonData:
+            # print("row:" + ingredientsRow + "|" + saisonRow[0])
+            if saisonRow[0] == ingredientsRow:
+                # print("saisonRow[i]" + saisonRow[0])
+                for i in range(1, 12):
+                    # print("saisonRow[i]" + saisonRow[i])
+                    # print(datetime.today().month)
+                    if saisonRow[i] == "x":
+                        # print(i)
+                        if i == datetime.today().month:
+                            # print("Result: " + saisonRow[i])
+                            data.append(True)
+                            break
+    return data
+
+
 # Index with receipts
 @app.route("/", methods=["GET", "POST"])
 def getIngredients():
@@ -89,14 +118,13 @@ def getIngredients():
         ):
             print("test3: submit_button_submit")
             print(ingredients)
-            numberOfResults = 5
-            # Mock up Data
-            # url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey={2}".format(
-            #    ingredients, numberOfResults, apiKey
-            # )
-            # res = requests.get(url)
-            # json_data = json.loads(res.text)
-            json_data = json.loads(readJsonFromJsonDoc("testResponse.json"))
+            numberOfResults = 4
+            url = "https://api.spoonacular.com/recipes/findByIngredients?ingredients={0}&number={1}&apiKey={2}".format(
+                ingredients, numberOfResults, apiKey
+            )
+            res = requests.get(url)
+            json_data = json.loads(res.text)
+            # json_data = json.loads(readJsonFromJsonDoc("testResponse.json"))
             # jsonpath_expression_receipts = parse("$[*]")
             receipts_list = json_data
             images_list = json_data
@@ -104,7 +132,12 @@ def getIngredients():
             print("test3: 2. API Call")
             vegetarianList = []
             veganList = []
+            saisonList = []
+            ingredientsAllReceipts = []
+            saisonData = csvToArrayList("SaisonkalenderAppetite.csv")
+            # for i in range(numberOfResults):
             for i in range(numberOfResults):
+                print("Rezept")
                 id = receipts_list[i]["id"]
                 url = "https://api.spoonacular.com/recipes/{0}/information?apiKey={1}".format(
                     id, apiKey
@@ -113,17 +146,30 @@ def getIngredients():
                 json_data = json.loads(res.text)
                 vegetarianList.append(json_data["vegetarian"])
                 veganList.append(json_data["vegan"])
+                for row in json_data["extendedIngredients"]:
+                    ingredientsAllReceipts.append(row["name"])
+                saisonList.append(createSaisonList(ingredientsAllReceipts, saisonData))
+                ingredientsAllReceipts.clear()
             # receipts_list = [
             #    match.value for match in jsonpath_expression_receipts.find(json_data)
             # ]
             # images_list = [
             #    match.value for match in jsonpath_expression_image.find(json_data)
             # ]
-            saisonList = []
-            csvData = json.loads(readJsonFromJsonDoc("saisonCalendar.json"))
-            print(csvData)
-            for row in csvData:
-                print(row["Ingredient"])
+
+            # saisonList2 = []
+            print("test: extendedIngredients")
+
+            # print(json_data["extendedIngredients"])
+            print("test: saisonList")
+            print(saisonList)
+            # for row in saisonData:
+            #    saisonList2.append(row["Ingredient"])
+
+            # print("test: Print saisonList")
+            # print(saisonList)
+            # for row in saisonList:
+            #    print(row)
             # saisonList.append()
             print("test3: receipts_list")
             ingredients.clear()
@@ -134,6 +180,7 @@ def getIngredients():
                 vegetarianList=vegetarianList,
                 veganList=veganList,
                 numberOfResults=numberOfResults,
+                saisonList=saisonList,
             )
         elif request.form["ingredientInput"] and request.form.get("submit_button_add"):
             print("test4: submit_button_more")
