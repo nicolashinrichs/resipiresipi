@@ -909,7 +909,7 @@ legend {
 .s004 form .inner-form .input-field .choices .choices__list--dropdown {
   background: transparent;
   font-size: 16px;
-  color: #fff;
+  color: black;
   border: 0;
   padding: 0 32px;
 }
@@ -969,7 +969,7 @@ legend {
   display: inline-block;
   padding: 0 15px;
   line-height: 32px;
-  color: #fff;
+  color: black;
   border-radius: 16px;
   margin-right: 10px;
   margin-bottom: 10px;
