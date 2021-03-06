@@ -90,16 +90,16 @@ def createSaisonList(ingredientsList, saisonData):
     data = []
     for ingredientsRow in ingredientsList:
         for saisonRow in saisonData:
-            print("row:" + ingredientsRow + "|" + saisonRow[0])
+            # print("row:" + ingredientsRow + "|" + saisonRow[0])
             if saisonRow[0] == ingredientsRow:
-                print("saisonRow[i]" + saisonRow[0])
+                # print("saisonRow[i]" + saisonRow[0])
                 for i in range(1, 12):
-                    print("saisonRow[i]" + saisonRow[i])
-                    print(datetime.today().month)
+                    # print("saisonRow[i]" + saisonRow[i])
+                    # print(datetime.today().month)
                     if saisonRow[i] == "x":
-                        print(i)
+                        # print(i)
                         if i == datetime.today().month:
-                            print("Result: " + saisonRow[i])
+                            # print("Result: " + saisonRow[i])
                             data.append(True)
                             break
     return data
