@@ -75,6 +75,9 @@ def listToString(s):
     # return string
     return str1
 
+def createSaisonList(list1, list2):
+    
+
 
 # Index with receipts
 @app.route("/", methods=["GET", "POST"])
@@ -104,7 +107,8 @@ def getIngredients():
             print("test3: 2. API Call")
             vegetarianList = []
             veganList = []
-            for i in range(numberOfResults):
+            # for i in range(numberOfResults):
+            for i in range(1):
                 id = receipts_list[i]["id"]
                 url = "https://api.spoonacular.com/recipes/{0}/information?apiKey={1}".format(
                     id, apiKey
@@ -120,10 +124,16 @@ def getIngredients():
             #    match.value for match in jsonpath_expression_image.find(json_data)
             # ]
             saisonList = []
-            csvData = json.loads(readJsonFromJsonDoc("saisonCalendar.json"))
-            print(csvData)
-            for row in csvData:
-                print(row["Ingredient"])
+            saisonList1 = []
+            saisonList2 = []
+            print("test: extendedIngredients")
+            saisonData = json.loads(readJsonFromJsonDoc("saisonCalendar.json"))
+            # print(json_data["extendedIngredients"])
+            for row in json_data["extendedIngredients"]:
+                saisonList1.append(row["name"])
+            # print(saisonData)
+            for row in saisonData:
+                saisonList2.append(row["Ingredient"])
             # saisonList.append()
             print("test3: receipts_list")
             ingredients.clear()
